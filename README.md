@@ -8,7 +8,8 @@ Although it is based on .net 5 GDI+ methods are used that means it will only run
 ## Features:
 * Generates Square Mazes
 * Generates Images Mazes
-* Set Wall and Background Colours
+* Set wall and background colours or use the image colours
+* Set pen and cell render sizes
 
 ## Samples
 
@@ -18,7 +19,7 @@ Although it is based on .net 5 GDI+ methods are used that means it will only run
 
 Original Image From: https://www.iconfinder.com/icons/3069195/think_creative_thinking_light_idea_icon
 
-Todo:
+## Next Items Todo
 * Add Entrance and Exit to Mazes
 * Build UI to expose the options
 * Resolve Maze and Render the route
