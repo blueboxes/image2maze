@@ -20,7 +20,6 @@ Although it is based on .net 5 GDI+ methods are used that means it will only run
 Original Image From: https://www.iconfinder.com/icons/3069195/think_creative_thinking_light_idea_icon
 
 ## Next Items Todo
-* Add Entrance and Exit to Mazes
 * Build UI to expose the options
 * Resolve Maze and Render the route
 * SVG Render

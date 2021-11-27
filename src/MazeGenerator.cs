@@ -36,7 +36,6 @@ namespace image2maze
 
             };
         protected Random random = new Random();
-
         public int Height { get; private set; }
         public int Width { get; private set; }
 
@@ -46,8 +45,14 @@ namespace image2maze
             Width = grid.GetLength(1);
 
             var start = FindStart(grid);
-             return MoveFrom(start.Y, start.X, grid);
-             //return MoveFrom(0, 0, grid);
+            var end = FindEnd(grid);
+
+            grid = MoveFrom(start.Y, start.X, grid);
+
+            grid[start.Y, start.X] &= ~Direction.W;
+            grid[end.Y, end.X] &= ~Direction.E;
+
+            return grid;
         }
 
         private MazePoint FindStart(Direction[,] grid)
@@ -63,7 +68,21 @@ namespace image2maze
 
             return new MazePoint(0, 0);
         }
-   
+
+        private MazePoint FindEnd(Direction[,] grid)
+        {
+            for (int i = Height-1; i > 0; i--)
+            {
+                for (int j = Width-1; j > 0 ; j--)
+                {
+                    if (grid[i, j].HasFlag(AllDirections))
+                        return new MazePoint(j, i);
+                }
+            }
+
+            return new MazePoint(0, 0);
+        }
+
         private Direction[,] MoveFrom(int row, int col, Direction[,] grid)
         {
             var directions = GetDirections();
